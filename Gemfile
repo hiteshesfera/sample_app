@@ -18,14 +18,14 @@ gem 'coffee-rails', '~> 4.0.0'
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer',  platforms: :ruby
 
-gem 'sqlite3-ruby', '1.2.5', :require => 'sqlite3'
-
+#gem 'sqlite3-ruby', '1.2.5', :require => 'sqlite3'
+gem 'sqlite3-ruby', '>= 1.3.1', :require => 'sqlite3'
 group :development do
-   gem 'rspec-rails', '2.0.1'
+  gem 'rspec-rails'
 end
 
 group :test do
-  gem 'rspec', '2.0.1'
+  gem 'rspec', '2.6'
   gem 'webrat', '0.7.1'
 end
 
