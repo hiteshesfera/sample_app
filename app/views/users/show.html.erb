@@ -1,0 +1,13 @@
+<div>
+	<div class="user-container">
+		<div class="title">
+		    <%= gravatar_for @user %>
+			<%= @user.name %>
+		</div>
+		<div class="detail">
+			<%= @user.email %>
+		</div>
+	</div>
+
+	<div>Trace :  <%= params.inspect %></div>
+</div>

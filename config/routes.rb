@@ -1,5 +1,24 @@
 Rails.application.routes.draw do
 
+  #Users Resources route
+  # This will create all required Routes Needed for doing CRUD 
+  # 
+  # HTTP_Request     URI            Action        Named_Route           Purpose          
+  # 
+  # GET              /users         index         users_path 
+  # GET              /users/1       show          user_path(user)
+  # GET              /users/new     new           new_user_path
+  # 
+  # POST             /users         create        users_path
+  # GET              /users/1/edit  edit          edit_user_path
+  # 
+  # PUT              /users/1       update        user_path_code
+  # DELETE           /users/1       destroy       user_path(user)
+  # 
+
+  
+  resources :users
+
 
   get 'users/new'
 
@@ -10,8 +29,12 @@ Rails.application.routes.draw do
   match '/contact' => 'static_pages#contact', :via => [:get]
   match '/' => 'pages#home' , :via => [:get]
   match '/signin' => 'static_pages#signin' , :via => [:get]
-  match '/signup' => 'static_pages#signup' , :via => [:get]
+  match '/signup' => 'users#new' , :via => [:get]
   match '/about' => 'static_pages#about' , :via => [:get]
+
+
+  
+
 
 
   # The priority is based upon order of creation: first created -> highest priority.
