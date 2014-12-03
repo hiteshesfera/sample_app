@@ -19,6 +19,10 @@ Rails.application.routes.draw do
   
   resources :users
 
+  resources :sessions , only: [:new , :create , :destroy]
+
+
+
 
   get 'users/new'
 
@@ -28,7 +32,8 @@ Rails.application.routes.draw do
   match '/help' => 'static_pages#help', :via => [:get]
   match '/contact' => 'static_pages#contact', :via => [:get]
   match '/' => 'pages#home' , :via => [:get]
-  match '/signin' => 'static_pages#signin' , :via => [:get]
+  match '/signin' => 'sessions#new' , :via => [:get]
+  match '/signout' => 'sessions#destroy' , :via => [:delete]
   match '/signup' => 'users#new' , :via => [:get]
   match '/about' => 'static_pages#about' , :via => [:get]
 

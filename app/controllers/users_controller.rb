@@ -15,8 +15,10 @@ class UsersController < ApplicationController
   	@user = User.new(user_params)
    # render :plain => params[:user].inspect
   	if @user.save
+  		sign_in @user
   		flash[":success"] = "Welcome To Ruby On Rails Application"
   		redirect_to @user
+
   	else
   		render 'new'
   	end
