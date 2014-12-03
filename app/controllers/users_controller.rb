@@ -1,15 +1,27 @@
 class UsersController < ApplicationController
-  before_filter :signed_in_user , only: [:update , :edit]
+  before_filter :signed_in_user , only: [:index , :update , :edit]
   before_filter :correct_user , only: [:update , :edit]
+  before_filter :admin_user, only: :destroy
+
+#index method to show all users.
+  def index
+    #render :plain => params[:page].inspect
+    @users = User.paginate(page: params[:page])
+  end
 
 	def show
 		@user = User.find(params[:id])
-
 	end
 
 
   def new
   	@user = User.new
+  end
+
+  def destroy
+    User.find(params[:id]).destroy
+    flash[:success] = "User deleted!"
+    redirect_to users_path
   end
   
 
@@ -61,6 +73,10 @@ class UsersController < ApplicationController
   def correct_user
     @user  = User.find(params[:id])
     redirect_to "/" unless current_user?(@user)
+  end
+
+  def admin_user
+    redirect_to('/') unless current_user.admin?
   end
 
 

@@ -44,6 +44,11 @@ gem 'spring',        group: :development
 
 # Use ActiveModel has_secure_password
  gem 'bcrypt', '~> 3.1.7'
+ gem 'faker' , '1.0.1'
+
+ #this gem is used to implement pagination in user page
+ gem 'will_paginate', '~> 3.0.5'
+ gem 'bootstrap-will_paginate' 
 
 # Use unicorn as the app server
 # gem 'unicorn'
