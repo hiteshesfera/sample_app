@@ -36,7 +36,9 @@ Rails.application.routes.draw do
   match '/signout' => 'sessions#destroy' , :via => [:delete]
   match '/signup' => 'users#new' , :via => [:get]
   match '/about' => 'static_pages#about' , :via => [:get]
+  
 
+  get 'users/edit/:id' => 'users#edit'
 
   
 
