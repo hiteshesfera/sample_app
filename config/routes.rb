@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
 
+  # get 'microposts/index'
+
+  # get 'microposts/create'
+
+  # get 'microposts/destroy'
+
   #Users Resources route
   # This will create all required Routes Needed for doing CRUD 
   # 
@@ -20,6 +26,7 @@ Rails.application.routes.draw do
   resources :users
 
   resources :sessions , only: [:new , :create , :destroy]
+  resources :microposts, only: [:create , :destroy]
 
 
 
